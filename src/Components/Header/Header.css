@@ -1,0 +1,15 @@
+.img-styles img{
+          width: 150px;  
+                
+}
+
+
+.header-container{
+          display: flex;
+          margin: 20px;
+
+}
+.header-content{
+          
+          margin-left: auto !important;
+}

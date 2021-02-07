@@ -1,0 +1,24 @@
+.home-content{
+          text-align: center;
+          background-color: #fcf4e0;
+          background-image: url(../../images/bannerBackgroundImage.png);
+          width: 100vw;
+         
+         background-size: contain;
+}
+
+.home-content input{
+          margin-top: 300px;
+          width: 500px;
+          height: 35px;
+          
+}
+.home-content Button{
+          margin-bottom : 7px;
+}
+.text-item{
+          margin-top: 240px;
+          font-size: 2em;
+          color: rgb(122, 110, 110);
+          padding: 10px;
+}
