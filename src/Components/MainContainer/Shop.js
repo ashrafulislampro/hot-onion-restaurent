@@ -1,51 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import products from '../Data/Data';
+import { Button } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import allProducts from '../Data/Data';
 import Product from '../Products/Product';
+import { CategoryContext } from '../RootComponent/RootComponent';
 
 import './Shop.css';
 const Shop = () => {
-        const [foodItems , setFoodItems] = useState([]);
-        useEffect(() =>{
-              setFoodItems(products);
-        },[])
+   
+    const [category , setCategory] = useContext(CategoryContext);
+    const [foodItems, setFoodItems] = useState([]);
 
-        const handleBreakfast = (category) => {
-            console.log("breakfast add");
-            const lunchFood = foodItems.filter(foodItem => foodItem.category === category.breakfast);
-            setFoodItems(lunchFood);
-        }
-         
-        const handleLunch = (category) => {
-            console.log("lunch added");
-            const lunchFood = foodItems.filter(foodItem => foodItem.category === category.lunch);
-            setFoodItems(lunchFood);
-        }
+    useEffect(() =>{
+        
+        const matchedProducts = allProducts.filter(pdf => pdf.category.toUpperCase() === category.toUpperCase());
+        setFoodItems(matchedProducts);
+    },[category])
+    // console.log(foodItems);
+    return (
+        <div>
+            <div className="item d-flex justify-content-center">
 
-        const handleDinner = (category) => {
-            console.log("lunch added");
-            const dinnerFood = foodItems.filter(foodItem => foodItem.category === category.dinner);
-            setFoodItems(dinnerFood);
-        }
-      //   console.log(foodItems);
-          return (
-                    <div>
-                           <div className="item d-flex justify-content-center">
-                                 
-                                 <p onClick={handleBreakfast}>Breakfast</p>
-                                 <p onClick={handleLunch}>Lunch</p>
-                                 <p onClick={handleDinner}>Dinner</p>
-                                 
-                           </div>
-                             {
-                                   foodItems.map(foodItem => <Product 
-                                    foodItem={foodItem}
-                                    key={foodItem.img}
-                                   
-                                    ></Product>)
-                             }
-                              
-                    </div>
-          );
+               <Button variant="contained" color="secondary"  onClick={() => setCategory('Breakfast')}>Breakfast</Button>
+               <Button variant="contained" color="secondary"  onClick={() => setCategory('Lunch')}>Lunch</Button>
+               <Button variant="contained" color="secondary" onClick={() => setCategory('Dinner')}>Dinner</Button>
+                
+
+            </div>
+
+                {
+                    foodItems.map(foodItem => <Product foodItem={foodItem} key={foodItem.img}></Product>)
+                }
+        </div>
+    );
 };
 
 export default Shop;

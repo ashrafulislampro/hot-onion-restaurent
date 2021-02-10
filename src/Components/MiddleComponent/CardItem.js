@@ -93,6 +93,32 @@ const CartItem = () => {
                                 </CardActions>
                           </Card> 
                         </div>
+                        <div className="cartItem">
+                          <Card className={classes.root} >
+                                <CardMedia
+                                  className={classes.media}
+                                  image="https://i.ibb.co/G3kLZt5/images.png"
+                                  title="Paella dish"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                  A Good Auto Responder
+                                </Typography>
+                                  <Typography variant="body2" color="textSecondary" component="p">
+                                      This impressive paella is a perfect party dish and a fun meal to cook together with your
+                                      guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                                  </Typography>
+                                </CardContent>
+                                <CardActions>
+                                  <Button size="small" color="primary">
+                                    Share
+                                  </Button>
+                                  <Button size="small" color="primary">
+                                    Learn More
+                                  </Button>
+                                </CardActions>
+                          </Card> 
+                        </div>
                        <div className="cartItem">
                         <Card className={classes.root}>
                                 <CardMedia
